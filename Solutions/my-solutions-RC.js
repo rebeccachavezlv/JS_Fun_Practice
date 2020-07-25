@@ -64,19 +64,63 @@ mul = (...nums) => {
 // min(...nums) ⇒ number
 //Write a function min that is generalized for any amount of arguments
 
+min = (...nums) => {
+    return nums.reduce((a, b) => (a > b) ? b : a)
+};
+
 // max(...nums) ⇒ number
 //Write a function max that is generalized for any amount of arguments
+
+max = (...nums) => {
+    return nums.reduce((a, b) => (a > b) ? a : b)
+};
 
 // addRecurse(...nums) ⇒ number
 //Write a function addRecurse that is the generalized add function but uses recursion
 
+addRecurse = (...nums) => {
+    let total = 0;
+    nums.forEach ((value) => {
+        total = total + value
+    });
+    return total;
+};
+
 // mulRecurse(...nums) ⇒ number
 //Write a function mulRecurse that is the generalized mul function but uses recursion
+
+mulRecurse = (...nums) => {
+    let total = 1;
+    nums.forEach ((value) => {
+        total = total * value
+    });
+    return total;
+};
 
 // minRecurse(...nums) ⇒ number
 //Write a function minRecurse that is the generalized min function but uses recursion
 
+minRecurse = (...nums) => {
+    let lastNumber = nums[0];
+    for (i = 0; i < nums.length; i++){
+        if (lastNumber > nums[i]){
+            lastNumber = nums[i];
+        } else {
+        };
+    }
+    return lastNumber
+};
+
 // maxRecurse(...nums) ⇒ number
 //Write a function maxRecurse that is the generalized max function but uses recursion
 
-
+maxRecurse = (...nums) => {
+    let lastNumber = nums[0];
+    for (i = 0; i < nums.length; i++){
+        if (lastNumber < nums[i]){
+            lastNumber = nums[i];
+        } else {
+        };
+    }
+    return lastNumber
+};
