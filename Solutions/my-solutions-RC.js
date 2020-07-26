@@ -128,10 +128,38 @@ maxRecurse = (...nums) => {
 // not(func) ⇒ function
 //     Write a function not that takes a function and returns the negation of its result
 
+isOdd = (a) => {
+    return (a % 2 === 1) ? true : false
+};
 
+not = (a) => {
+    if (isOdd(a) === true){
+        return false;
+    } else {
+        return true;
+    }
+}
+
+isEven = (a) => {
+    return not(a);
+}
 
 // acc(func, initial) ⇒ function
 //     Write a function acc that takes a function and an initial value and returns a function that runs the initial function on each argument, accumulating the result
+
+// mulb = (a, b) => {
+//     return a+b;
+// };
+
+// acc = (func, initial) => {
+//     return (...args) => {
+//         args.reduce((accum, currentValue) => {
+
+//         })
+//     }
+// }
+
+// let multiplyThis = acc(mulb, 1)
 
 // accPartial(func, start, end) ⇒ function
 //     Write a function accPartial that takes in a function, a start index, and an end index, and returns a function that accumulates a subset of its arguments by applying the given function to all elements between start and end.
