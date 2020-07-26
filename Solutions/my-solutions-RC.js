@@ -147,22 +147,27 @@ isEven = (a) => {
 // acc(func, initial) ⇒ function
 //     Write a function acc that takes a function and an initial value and returns a function that runs the initial function on each argument, accumulating the result
 
-// mulb = (a, b) => {
-//     return a+b;
-// };
+mulb = (a, b) => {
+    return a*b;
+};
 
-// acc = (func, initial) => {
-//     return (...args) => {
-//         args.reduce((accum, currentValue) => {
+acc = (func, initial) => {
+    return (...args) => {
+        return args.reduce((accum, currentValue, index) => {
+            return func(accum, currentValue, index)
+        }, initial);
+    }
+};
 
-//         })
-//     }
-// }
-
-// let multiplyThis = acc(mulb, 1)
+multiplyThis = acc(mulb, 1);
+addThis = acc(addb, 0);
 
 // accPartial(func, start, end) ⇒ function
 //     Write a function accPartial that takes in a function, a start index, and an end index, and returns a function that accumulates a subset of its arguments by applying the given function to all elements between start and end.
+
+const accPartial = (func, start, end) => {
+
+}
 
 // accRecurse(func, initial) ⇒ function
 //     Write a function accRecurse that does what acc does but uses recursion
@@ -170,20 +175,60 @@ isEven = (a) => {
 // fill(num) ⇒ array
 //     Write a function fill that takes a number and returns an array with that many numbers equal to the given number
 
+const fill = (num) => {
+    filledArray = [];
+    for (i=0; i < num; i++){
+        filledArray.push(num)
+    }
+    return filledArray
+};
+
 // fillRecurse(num) ⇒ array
 //     Write a function fillRecurse that does what fill does but uses recursion
 
 // set(...args) ⇒ array
 //     Write a function set that is given a list of arguments and returns an array with all duplicates removed
 
+const set = (...args) => {
+    newArray = args.filter((value, index) => {
+        return args.indexOf(value) === index;
+    })
+    return newArray
+}
+
 // identityf(x) ⇒ function
 //     Write a function identityf that takes an argument and returns a function that returns that argument
+
+const indentityf = (x) => {
+        return x
+}
 
 // addf(a) ⇒ function
 //     Write a function addf that adds from two invocations
 
+const addf = (a) => {
+    let insideFunction = (x) => {
+        return a + x;
+    }
+    return insideFunction;
+}
+
 // liftf(binary) ⇒ function
 //     Write a function liftf that takes a binary function, and makes it callable with two invocations
+
+// add = (...nums) => {
+//     return nums.reduce((a, b) => a + b)
+// };
+
+
+// liftf = (binary) => {
+//     let insideFunction = (y) => {
+//         binary(y)
+//     }
+//     return insideFunction
+// }
+
+// let addTwo = liftf(add)
 
 // pure(x, y) ⇒ array
 //     Write a pure function pure that is a wrapper arround the impure function impure
